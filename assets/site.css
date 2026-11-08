@@ -1,0 +1,89 @@
+/* chorusplus.app 공용 스타일. 앱의 ‘도면 공책’ 느낌: 모눈 바탕, 방 색, 맑은 하늘 파랑 */
+:root {
+  color-scheme: light;
+  --paper: #F6F8FB;
+  --grid: rgba(70, 104, 150, 0.07);
+  --ink: #1C2738;
+  --soft: #5B6779;
+  --faint: #8A95A6;
+  --line: #D9E1EC;
+  --card: #FFFFFF;
+  --sky: #3F7CC4;
+  --sky-soft: #E6EFFA;
+  --amber: #D27A4E;
+  --peach: #E8A47E;
+  --peach-soft: #FBEDE4;
+  --butter: #F7F0DF;
+  --rose: #F8EAE8;
+  --sage: #E8EFE7;
+  --cobalt: #E6EDF7;
+  --stone: #EEECEA;
+  --shadow: 0 30px 80px rgba(28, 39, 56, 0.14), 0 2px 6px rgba(28, 39, 56, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #121822;
+    --grid: rgba(150, 180, 220, 0.06);
+    --ink: #E9EEF5;
+    --soft: #A9B4C4;
+    --faint: #7C8899;
+    --line: #2A3546;
+    --card: #1A2230;
+    --sky: #7FB0EA;
+    --sky-soft: #1F2D42;
+    --amber: #EBA27C;
+    --peach: #E8A47E;
+    --peach-soft: #33241D;
+    --butter: #2A2618;
+    --rose: #2D2122;
+    --sage: #1E2A21;
+    --cobalt: #1D2638;
+    --stone: #25262A;
+    --shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font: 17px/1.65 "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "Noto Sans KR", "Noto Sans TC", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+a { color: var(--sky); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* 머리 */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.mark { font-weight: 800; font-size: 24px; letter-spacing: -0.6px; color: var(--ink); }
+.mark b { color: var(--amber); font-weight: 800; }
+.mark:hover { text-decoration: none; }
+.nav { display: flex; align-items: center; gap: 18px; font-size: 15px; }
+.nav a { color: var(--soft); }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--card); }
+.lang button { border: 0; background: transparent; color: var(--soft); font: inherit; font-size: 13px; font-weight: 700; padding: 6px 11px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--sky-soft); color: var(--sky); }
+
+.langsel { appearance: none; -webkit-appearance: none; border: 1px solid var(--line); border-radius: 999px; background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238A95A6' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; padding: 7px 30px 7px 14px; cursor: pointer; }
+
+/* 문서 쪽(지원·방침·약관) */
+.doc { max-width: 680px; padding-block: 24px 80px; }
+.doc h1 { font-size: 34px; line-height: 1.25; letter-spacing: -0.8px; margin: 12px 0 6px; text-wrap: balance; }
+.doc h2 { font-size: 19px; margin: 36px 0 8px; letter-spacing: -0.2px; }
+.doc p { margin: 0 0 10px; color: var(--ink); }
+.doc .date { color: var(--faint); font-size: 14px; }
+.doc .lead { color: var(--soft); }
+.sheet { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px clamp(20px, 4vw, 40px) 32px; box-shadow: 0 1px 2px rgba(28, 39, 56, 0.04); }
+
+.foot { border-top: 1px solid var(--line); padding-block: 28px 44px; color: var(--faint); font-size: 14px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.foot a { color: var(--soft); }

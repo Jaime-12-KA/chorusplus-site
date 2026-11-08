@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chorus+ · Run your home together</title>
+<meta name="description" content="Chorus+ (살림+) helps families, couples and roommates share chores, supplies, shopping and household money on one calm plan of their home.">
+<meta property="og:title" content="Chorus+ · Run your home together">
+<meta property="og:description" content="Chores by room, supplies before they run out, and the money you share — for everyone at home.">
+<meta property="og:image" content="https://chorusplus.app/assets/shots/today.jpg">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 6vw, 72px); align-items: center; padding-block: clamp(20px, 5vw, 64px) clamp(48px, 8vw, 96px); }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; color: var(--soft); }
+  .eyebrow img { width: 34px; height: 34px; border-radius: 9px; }
+  h1.big { font-size: clamp(40px, 6.2vw, 72px); line-height: 1.08; letter-spacing: -0.04em; margin: 18px 0 20px; font-weight: 800; text-wrap: balance; }
+  h1.big em { font-style: normal; color: var(--amber); }
+  .lede { font-size: clamp(17px, 1.6vw, 20px); color: var(--soft); max-width: 34em; margin: 0 0 28px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: 16px; }
+  .pill.solid { background: var(--ink); color: var(--paper); }
+  .pill.solid svg { width: 18px; height: 18px; fill: currentColor; }
+  .pill.ghost { color: var(--ink); border: 1px solid var(--line); background: var(--card); }
+  .pill:hover { text-decoration: none; }
+  .promise { margin-top: 22px; font-size: 14px; color: var(--faint); letter-spacing: 0.02em; }
+
+  .stage { position: relative; justify-self: center; width: min(100%, 420px); aspect-ratio: 0.8; max-width: 100%; }
+  .phone { position: absolute; border-radius: clamp(28px, 4vw, 44px); overflow: hidden; background: var(--card); box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .phone img { width: 100%; height: auto; }
+  .stage .a { left: 0; top: 0; width: 64%; }
+  .stage .b { right: 0; top: 18%; width: 52%; }
+
+  section { padding-block: clamp(56px, 9vw, 112px); }
+  .kicker { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin: 0 0 12px; }
+  h2.sec { font-size: clamp(30px, 4vw, 46px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 14px; text-wrap: balance; }
+  .sub { color: var(--soft); max-width: 36em; margin: 0 0 36px; font-size: 18px; }
+
+  /* 우리 집 도면: 방마다 기능 하나 */
+  .plan { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: minmax(150px, auto); border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; background: var(--line); gap: 2px; }
+  .room { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .room .name { font-size: 12.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+  .room h3 { margin: 0; font-size: 20px; letter-spacing: -0.02em; line-height: 1.3; }
+  .room p { margin: 0; color: var(--soft); font-size: 15.5px; line-height: 1.55; }
+  .r1 { grid-column: span 4; background: var(--sage); }
+  .r2 { grid-column: span 2; background: var(--cobalt); }
+  .r3 { grid-column: span 3; background: var(--card); }
+  .r4 { grid-column: span 3; background: var(--butter); }
+  .r5 { grid-column: span 2; background: var(--rose); }
+  .r6 { grid-column: span 2; background: var(--peach-soft); }
+  .r7 { grid-column: span 2; background: var(--stone); }
+
+  /* 화면 소개 */
+  .show { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 80px); align-items: center; }
+  .show + .show { margin-top: clamp(64px, 9vw, 120px); }
+  .show.flip .shot { order: 2; }
+  .shot { justify-self: center; width: min(100%, 340px); }
+  .shot .phone { position: static; }
+  .show h3 { font-size: clamp(26px, 3vw, 36px); line-height: 1.2; letter-spacing: -0.03em; margin: 0 0 14px; text-wrap: balance; }
+  .show p { color: var(--soft); margin: 0 0 10px; font-size: 17.5px; }
+  .ticks { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+  .ticks li { display: flex; gap: 10px; color: var(--ink); font-size: 16px; }
+  .ticks li::before { content: ""; flex: 0 0 9px; height: 9px; margin-top: 9px; border-radius: 50%; background: var(--peach); }
+
+  .band { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+  .band h3 { margin: 0 0 6px; font-size: 19px; letter-spacing: -0.01em; }
+  .band p { margin: 0; color: var(--soft); font-size: 15.5px; }
+
+  .end { text-align: center; }
+  .end .icon { width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 22px; box-shadow: var(--shadow); }
+  .end .cta { justify-content: center; }
+  .langs { margin-top: 18px; color: var(--faint); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .hero, .show { grid-template-columns: minmax(0, 1fr); }
+    .show.flip .shot { order: 0; }
+    .stage { width: min(100%, 360px); }
+    .plan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .r1, .r2, .r3, .r4, .r5, .r6, .r7 { grid-column: span 2; }
+    .band { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="mark" href="./" aria-label="Chorus+ home">Chorus<b>+</b></a>
+  <nav class="nav">
+    <a href="#plan"><span data-i18n="nav.features">Features</span></a>
+    <a href="support/"><span data-i18n="nav.support">Support</span></a>
+    <select id="lang" class="langsel" aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="de">Deutsch</option><option value="es">Español</option><option value="zh-Hant">繁體中文</option></select>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow"><img src="assets/icon.png" alt="" width="34" height="34"><span data-i18n="eyebrow">Chorus+ · for homes shared by more than one</span></span>
+      <h1 class="big"><span data-i18n="h1">Run your home <em>together.</em></span></h1>
+      <p class="lede"><span data-i18n="lede">Chores laid out room by room, supplies before they run out, and the money you share — on one calm plan that everyone at home can see.</span></p>
+      <div class="cta">
+        <span class="pill solid"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg><span data-i18n="cta.soon">Coming soon to the App Store</span></span>
+        <a class="pill ghost" href="#plan"><span data-i18n="cta.inside">See what's inside</span></a>
+      </div>
+      <p class="promise"><span data-i18n="promise">Free · No ads · No tracking</span></p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="phone a"><img src="assets/shots/en/today.jpg" data-shot="today" data-base="" alt="" width="660" height="1434"></div>
+      <div class="phone b"><img src="assets/shots/en/weather.jpg" data-shot="weather" data-base="" alt="" width="660" height="1434"></div>
+    </div>
+  </div>
+
+  <section id="plan">
+    <div class="wrap">
+      <p class="kicker"><span data-i18n="plan.kicker">One plan for the whole house</span></p>
+      <h2 class="sec"><span data-i18n="plan.h2">Every room knows what it needs.</span></h2>
+      <p class="sub"><span data-i18n="plan.sub">Chorus+ draws your home as a simple floor plan. Chores, supplies and spending all live in the room they belong to.</span></p>
+      <div class="plan">
+        <div class="room r1"><span class="name"><span data-i18n="r1.name">Living room</span></span><h3><span data-i18n="r1.h">Today's chores, at a glance</span></h3><p><span data-i18n="r1.p">Tap once to mark it done, or finish several at once. What's left shows up room by room.</span></p></div>
+        <div class="room r2"><span class="name"><span data-i18n="r2.name">Balcony</span></span><h3><span data-i18n="r2.h">Weather, for housework</span></h3><p><span data-i18n="r2.p">When to dry laundry, take an umbrella or air out the house.</span></p></div>
+        <div class="room r3"><span class="name"><span data-i18n="r3.name">Bathroom</span></span><h3><span data-i18n="r3.h">Fair turns</span></h3><p><span data-i18n="r3.p">Rotating duties, swap requests and a weekly look at who did what.</span></p></div>
+        <div class="room r4"><span class="name"><span data-i18n="r4.name">Kitchen</span></span><h3><span data-i18n="r4.h">Supplies before they run out</span></h3><p><span data-i18n="r4.p">Running-low lists, expiry dates and a shopping list that flows into your expenses.</span></p></div>
+        <div class="room r5"><span class="name"><span data-i18n="r5.name">Bedroom</span></span><h3><span data-i18n="r5.h">A ledger that's yours</span></h3><p><span data-i18n="r5.p">Keep personal spending private, right next to the shared budget.</span></p></div>
+        <div class="room r6"><span class="name"><span data-i18n="r6.name">Dining</span></span><h3><span data-i18n="r6.h">Settle up, done for you</span></h3><p><span data-i18n="r6.p">Who owes whom, and exactly how it adds up.</span></p></div>
+        <div class="room r7"><span class="name"><span data-i18n="r7.name">Entrance</span></span><h3><span data-i18n="r7.h">On your Home Screen</span></h3><p><span data-i18n="r7.p">Widgets, Live Activities and reminders you choose.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="show">
+        <div class="shot"><div class="phone"><img src="assets/shots/en/weather.jpg" data-shot="weather" data-base="" alt="" data-i18n-alt="w.alt" width="660" height="1434" loading="lazy"></div></div>
+        <div>
+          <p class="kicker"><span data-i18n="w.kicker">Weather window</span></p>
+          <h3><span data-i18n="w.h">Look out the window before you hang the laundry.</span></h3>
+          <p><span data-i18n="w.p">Your neighborhood's sky, painted as a window — sunrise, rain, snow or a quiet night. Below it, a few plain notes for the day.</span></p>
+          <ul class="ticks">
+            <li><span data-i18n="w.t1">The best dry-weather hours for laundry</span></li>
+            <li><span data-i18n="w.t2">Whether you'll need an umbrella</span></li>
+            <li><span data-i18n="w.t3">Whether it's a good time to air out the house</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show flip">
+        <div class="shot"><div class="phone"><img src="assets/shots/en/money.jpg" data-shot="money" data-base="" alt="" data-i18n-alt="m.alt" width="660" height="1434" loading="lazy"></div></div>
+        <div>
+          <p class="kicker"><span data-i18n="m.kicker">Shared money</span></p>
+          <h3><span data-i18n="m.h">What's left to spend this month, in one number.</span></h3>
+          <p><span data-i18n="m.p">Shared expenses and your own ledger, side by side. Budgets by category, recurring bills, installments and bank statement import.</span></p>
+          <ul class="ticks">
+            <li><span data-i18n="m.t1">Split an expense and everyone's name is stamped on it</span></li>
+            <li><span data-i18n="m.t2">Settle up with the math shown, not hidden</span></li>
+            <li><span data-i18n="m.t3">Record payment alerts instantly with iPhone Shortcuts</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show">
+        <div class="shot"><div class="phone"><img src="assets/shots/en/supplies.jpg" data-shot="supplies" data-base="" alt="" data-i18n-alt="s.alt" width="660" height="1434" loading="lazy"></div></div>
+        <div>
+          <p class="kicker"><span data-i18n="s.kicker">Supplies</span></p>
+          <h3><span data-i18n="s.h">Never the last roll of paper towels again.</span></h3>
+          <p><span data-i18n="s.p">Chorus+ learns how fast you use things and tells you before they run out. Expiry dates come first, and the shopping list is one tap away.</span></p>
+        </div>
+      </div>
+
+      <div class="show flip">
+        <div class="shot"><div class="phone"><img src="assets/shots/en/report.jpg" data-shot="report" data-base="" alt="" data-i18n-alt="rep.alt" width="660" height="1434" loading="lazy"></div></div>
+        <div>
+          <p class="kicker"><span data-i18n="rep.kicker">Look back</span></p>
+          <h3><span data-i18n="rep.h">A month of home life, on one page.</span></h3>
+          <p><span data-i18n="rep.p">Chores finished, money shared and days recorded — gathered into a calendar you can keep or share as an image.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div><h3><span data-i18n="b1.h">No ads, no tracking</span></h3><p><span data-i18n="b1.p">We don't use analytics or ad tracking. Your home is not a data source.</span></p></div>
+        <div><h3><span data-i18n="b2.h">Private where it should be</span></h3><p><span data-i18n="b2.p">Your personal ledger and photos stay hidden from the rest of the household.</span></p></div>
+        <div><h3><span data-i18n="b3.h">Yours to take or delete</span></h3><p><span data-i18n="b3.p">Export your records or delete your account from Settings, anytime.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end">
+    <div class="wrap">
+      <img class="icon" src="assets/icon.png" alt="Chorus+ app icon" width="84" height="84">
+      <h2 class="sec"><span data-i18n="end.h">Try the sample home first.</span></h2>
+      <p class="sub" style="margin-inline:auto"><span data-i18n="end.p">No sign-up needed to look around. When you're ready, invite your household with a code.</span></p>
+      <div class="cta"><span class="pill solid"><span data-i18n="cta.soon">Coming soon to the App Store</span></span></div>
+      <p class="langs">English · 한국어 · 日本語 · Deutsch · Español · 繁體中文</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot">
+    <span>© 2026 Pawsitive</span>
+    <nav><a href="support/">Support</a><a href="privacy/">Privacy</a><a href="terms/">Terms</a><a href="mailto:hello@chorusplus.app">hello@chorusplus.app</a></nav>
+  </div>
+</footer>
+</body>
+</html>
